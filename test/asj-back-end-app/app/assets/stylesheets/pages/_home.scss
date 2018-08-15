@@ -1,1 +1,7 @@
 // Specific CSS for your home-page
+#banner {
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url("https://unsplash.com/photos/Rr4Ev6g2hC4");
+  background-size: cover;
+  height: calc(100vh - 140px);
+  margin-top: 70px;
+}

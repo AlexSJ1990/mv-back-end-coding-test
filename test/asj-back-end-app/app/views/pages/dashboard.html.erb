@@ -1,0 +1,27 @@
+<div class="form container">
+  <div class="row">
+    <div class="col-xs-offset-2 col-xs-8 form-column">
+      <div class="user-info">
+        <h4>Welcome <%#= current_user.first_name.capitalize %> <%#= current_user.last_name.capitalize %></h4>
+        <h6><%= current_user.email %></h6>
+        <h6>Influencers you are currently following</h6>
+      </div>
+
+      <div class="sections">
+        <!-- these are the suggested influencer cards -->
+        <div class="cards">
+        </div>
+
+        <!-- these are the followed influencer cards -->
+        <div class="container">
+          <div class="cards">
+            <% current_user.influencers.each do |influencer| %>
+            <%= render "influencers/card", influencer: influencer %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
