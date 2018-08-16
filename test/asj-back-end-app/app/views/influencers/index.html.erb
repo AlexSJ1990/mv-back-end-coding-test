@@ -1,5 +1,14 @@
-<% @influencers.each do |influencer| %>
-  <div class="influencer_card">
-    <%= influencer.influencer_full_name %>
+
+<div class="container min-height">
+  <div class="row" style="margin-top: 70px;">
+    <div class="col-xs-10 col-xs-offset-1">
+      <div class="row">
+        <% @influencers.each do |influencer| %>
+          <div class="col-xs-12 col-sm-6">
+            <%= render "card", influencer: influencer %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-<% end %>
+</div>
