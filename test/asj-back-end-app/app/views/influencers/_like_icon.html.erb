@@ -1,0 +1,10 @@
+<% if influencer.users.include?(current_user) %>
+  <%= link_to following_path(current_user.followings.where(influencer_id: influencer.id)[0].id), class: "delete-link", method: :delete do %>
+<i id="influencer-heart-<%= influencer.id %>" class="fas fa-trash-alt"></i>
+  <% end %>
+<% else %>
+  <%= link_to followings_path(influencer_id: influencer, user: current_user), class: "plus-link", method: :post do %>
+    <i id="influencer-heart-<%= influencer.id %>" class="fas fa-plus"></i>
+  <% end %>
+<% end %>
+
