@@ -5,4 +5,9 @@ class InfluencersController < ApplicationController
   def index
     @influencers = Influencer.all
   end
+
+  def destroy
+    @influencer = Influencer.find(params[:id])
+    @influencer.destroy
+  end
 end
