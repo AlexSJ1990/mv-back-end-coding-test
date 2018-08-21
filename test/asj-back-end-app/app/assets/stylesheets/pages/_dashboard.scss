@@ -9,3 +9,14 @@
   text-align: center;
   padding: 50px;
 }
+
+
+.starred-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
+}
