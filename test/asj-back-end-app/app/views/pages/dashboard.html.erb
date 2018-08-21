@@ -5,51 +5,58 @@
     </div>
 
     <div class="content">
+
+      <!-- Starred Influencers Section -->
+
       <div class="starred">
-      <div class="starred-header">
-        <div class="header">
-          <h2>Starred Influencers</h2>
-        </div>
-        <div class="starred-btn">
-          <div class="btn-group">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-              Engagement (High to Low) <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <li id="title"><%= link_to "Engagement (High to Low)", "#",{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
-              <li id="title"><%= link_to "Engagement (Low to High)", "#",{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
-              <li id="title"><%= link_to "Followers (High to Low)", "#",{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
-              <li id="title"><%= link_to "Followers (Low to High)", "#",{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
-            </ul>
+        <div class="starred-header">
+          <div class="header">
+            <h4>Starred Influencers</h4>
+          </div>
+          <div class="starred-btn">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                Engagement (High to Low) <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li id="title"><%= link_to "Engagement (High to Low)", "#",{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
+                <li id="title"><%= link_to "Engagement (Low to High)", "#",{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
+                <li id="title"><%= link_to "Followers (High to Low)", "#",{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
+                <li id="title"><%= link_to "Followers (Low to High)", "#",{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="starred-cards">
+        <div class="starred-cards">
           <% sorted_engagement_asc(current_user).each do |influencer| %>
             <%= render "influencers/card", influencer: influencer %>
           <% end %>
+        </div>
       </div>
-      </div>
+
+      <!-- Suggested Influencer Section -->
+
       <div class="suggested">
-      <div class="suggested-header">
-        <h2>Suggested Influencers</h2>
-      </div>
-      <div class="suggested-cards">
-        <% Influencer.all.each do |influencer| %>
-          <% unless influencer.users.include?(current_user)  %>
-            <div class="influencer-card">
-              <div class="photo">
-                <%= image_tag influencer.influencer_instagram_profile_image, id: "avatar" %>
+        <div class="suggested-header">
+          <h4>Suggested Influencers</h4>
+        </div>
+        <div class="suggested-cards">
+          <% Influencer.all.each do |influencer| %>
+            <% unless influencer.users.include?(current_user)  %>
+              <div class="influencer-card">
+                <div class="photo">
+                  <%= image_tag influencer.influencer_instagram_profile_image, id: "avatar" %>
+                </div>
+                <h4><%= influencer.influencer_full_name %></h4>
+                <h6><%= influencer.influencer_instagram_username %> </h6>
+                <%= render "influencers/like_icon", influencer: influencer %>
               </div>
-              <h4><%= influencer.influencer_full_name %></h4>
-              <h6><%= influencer.influencer_instagram_username %> </h6>
-              <%= render "influencers/like_icon", influencer: influencer %>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
-      </div>
+
     </div>
   </div>
 </div>
