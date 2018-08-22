@@ -8,17 +8,8 @@
       <h6> <%= influencer.influencer_instagram_username %> </h6>
     </div>
     <div class="card-stats">
-      <p>Followers</p>
-      <div class="card-stats-followers">
-      <p> <%=influencer.statistics_followers%></p>
-      </div>
-
-    </div>
-    <div class="card-stats">
-      <div class="card-stat-engagement">
-        <p>Engagement</p>
-      </div>
-      <p> <%=influencer.statistics_engagement%></p>
+      <p> Followers <%= influencer.statistics_followers %></p>
+      <p> Engagement <%= influencer.statistics_engagement %></p>
     </div>
     <span class="influencer-icon" id="like-icon-<%= influencer.id %>">
       <%= render "influencers/like_icon", influencer: influencer %>
