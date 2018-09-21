@@ -44,7 +44,7 @@
         <div class="suggested-cards">
           <% Influencer.all.each do |influencer| %>
             <% unless influencer.users.include?(current_user)  %>
-              <div class="influencer-card">
+              <div class="suggested-card">  <!-- fix styling - copy influencer-card styling -->
                 <div class="photo">
                   <%= image_tag influencer.influencer_instagram_profile_image, id: "avatar" %>
                 </div>

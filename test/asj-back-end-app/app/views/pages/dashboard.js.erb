@@ -1,56 +1,60 @@
-
+console.log("hello");
 
 document.getElementById("followers_high").childNodes[0].addEventListener("click", (event) => {
   document.querySelector(".btn-default").innerText = "Followers High to Low"
+
+
+  var cards = document.querySelectorAll(".influencer-card")
+
+  var first_sort = []
+
+  var i = 0
+
+  while (i < cards.length) {
+    if(cards[i].dataset.engagementId > cards[i+1].dataset.engagementId) {
+        first_sort.push(cards[i+ 1])
+    }
+    else {
+      first_sort.push(cards[i])
+    }
+    i += 1
+  }
+
+    console.log(first_sort)
+
  });
 
-document.getElementById("followers_low").childNodes[0].addEventListener("click", (event) => {
-  document.querySelector(".btn-default").innerText = " Followers Low to High "
-  <% sorted_followers_asc(current_user) %>
-});
 
-document.getElementById("engagement_high").childNodes[0].addEventListener("click", (event) => {
-  document.querySelector(".btn-default").innerText = " Engagement High to Low "
-  <% sorted_engagement_desc(current_user) %>
-});
+  // cards.forEach((card) => {
+  //   i = 0
 
-document.getElementById("engagement_low").childNodes[0].addEventListener("click", (event) => {
-  document.querySelector(".btn-default").innerText = " Engagement Low to High "
-  <% sorted_engagement_asc(current_user) %>
-});
+  //   console.log(cards[i]."card-following-stats")
 
-
-
-
-
-
-  //   <% sorted_engagement_asc(current_user).each do |influencer| %>
-  // <%= j render "influencers/card", influencer: influencer %>
-  //      <% end %>
-
-  // var stats = document.querySelectorAll(".card-stats-followers")
-
-  // data = [];
-
-  // stats.forEach(function(stat) {
-  //   data.push(stat.innerText);
-  // });
-
-  // // stats.sort(function(a, b) {
-  // //   return a - b;
-  // // });
-
-  // stats.sort(function(a, b) {
-  //   return parseFloat(a.innerText) - parseFloat(b.innerText)
+  //   if(cards[i].dateset.engagementId > cards[i + 1].dataset.engagementId) {
+  //     first_sort.push(card[i + 1])
+  //     i++
+  //   }
   // });
 
 
-  // console.log(stats);
-
-  // cards = document.getElementById(".influencer-card");
 
 
 
+
+// document.getElementById("followers_low").childNodes[0].addEventListener("click", (event) => {
+//   document.querySelector(".btn-default").innerText = " Followers Low to High "
+
+// });
+
+// document.getElementById("engagement_high").childNodes[0].addEventListener("click", (event) => {
+//   document.querySelector(".btn-default").innerText = " Engagement High to Low "
+
+// });
+
+// document.getElementById("engagement_low").childNodes[0].addEventListener("click", (event) => {
+//   document.querySelector(".btn-default").innerText = " Engagement Low to High "
+
+// });
 
 
 
