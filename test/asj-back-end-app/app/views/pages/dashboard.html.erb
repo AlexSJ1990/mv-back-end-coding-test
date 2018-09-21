@@ -19,10 +19,10 @@
                 Engagement (High to Low) <span class="caret"></span>
               </button>
               <ul class="dropdown-menu" role="menu">
-                <li id="title"><%= link_to "Engagement (High to Low)", "#",{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
-                <li id="title"><%= link_to "Engagement (Low to High)", "#",{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
-                <li id="title"><%= link_to "Followers (High to Low)", "#",{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
-                <li id="title"><%= link_to "Followers (Low to High)", "#",{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
+                <li id="engagement_high"><%= link_to "Engagement (High to Low)", "#",{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
+                <li id="engagement_low"><%= link_to "Engagement (Low to High)", "#",{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
+                <li id="followers_high"><%= link_to "Followers (High to Low)", "#",{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
+                <li id="followers_low"><%= link_to "Followers (Low to High)", "#",{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
               </ul>
             </div>
           </div>
@@ -44,7 +44,7 @@
         <div class="suggested-cards">
           <% Influencer.all.each do |influencer| %>
             <% unless influencer.users.include?(current_user)  %>
-              <div class="influencer-card">
+              <div class="suggested-card">  <!-- fix styling - copy influencer-card styling -->
                 <div class="photo">
                   <%= image_tag influencer.influencer_instagram_profile_image, id: "avatar" %>
                 </div>

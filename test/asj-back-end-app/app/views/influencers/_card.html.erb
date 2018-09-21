@@ -1,4 +1,4 @@
-<div class="influencer-card" data-influencer-id="<%= influencer.id %>">
+<div class="influencer-card" data-influencer-id="<%= influencer.id %>" data-engagement-id="<%= influencer.statistics_engagement %>">
   <div class="influencer-card-sections">
     <div class="photo">
       <%= image_tag influencer.influencer_instagram_profile_image, id: "avatar" %>
@@ -7,9 +7,15 @@
       <h4><%= influencer.influencer_full_name %></h4>
       <h6> <%= influencer.influencer_instagram_username %> </h6>
     </div>
-    <div class="card-stats">
-      <p> Followers <%= influencer.statistics_followers %></p>
-      <p> Engagement <%= influencer.statistics_engagement %></p>
+    <div class="stats">
+      <p>Followers</p>
+      <div class="card-following-stats">
+        <%= influencer.statistics_followers %>
+      </div>
+      <p>Engagement</p>
+      <div class="card-engagement-stats">
+         <p> Engagement <%= influencer.statistics_engagement %></p>
+      </div>
     </div>
     <span class="influencer-icon" id="like-icon-<%= influencer.id %>">
       <%= render "influencers/like_icon", influencer: influencer %>
